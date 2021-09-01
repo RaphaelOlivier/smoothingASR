@@ -1,0 +1,12 @@
+armory run smoothing_asr/configs/asr/pgd/10/espr1_asnr.json --num-eval-batches 10 --skip-benign
+armory run smoothing_asr/configs/asr/pgd/15/espr1_asnr.json --num-eval-batches 10 --skip-benign
+armory run smoothing_asr/configs/asr/pgd/20/espr1_asnr.json --num-eval-batches 10 --skip-benign
+armory run smoothing_asr/configs/asr/pgd/25/espr1_asnr.json --num-eval-batches 10 --skip-benign
+armory run smoothing_asr/configs/asr/pgd/30/espr1_asnr.json --num-eval-batches 10 --skip-benign
+armory run smoothing_asr/configs/asr/pgd/35/espr1_asnr.json --num-eval-batches 10 --skip-benign
+armory run smoothing_asr/configs/asr/pgd/10/espr2_asnr.json --num-eval-batches 10 --skip-benign
+armory run smoothing_asr/configs/asr/pgd/15/espr2_asnr.json --num-eval-batches 10 --skip-benign
+armory run smoothing_asr/configs/asr/pgd/20/espr2_asnr.json --num-eval-batches 10 --skip-benign
+armory run smoothing_asr/configs/asr/pgd/25/espr2_asnr.json --num-eval-batches 10 --skip-benign
+armory run smoothing_asr/configs/asr/pgd/30/espr2_asnr.json --num-eval-batches 10 --skip-benign
+armory run smoothing_asr/configs/asr/pgd/35/espr2_asnr.json --num-eval-batches 10 --skip-benign

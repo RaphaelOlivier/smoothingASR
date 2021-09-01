@@ -1,0 +1,121 @@
+{
+    "_description": "Baseline DeepSpeech ASR on LibriSpeech, contributed by MITRE Corporation",
+    "adhoc": {
+        "skip_adversarial": false
+    },
+    "attack": {
+        "knowledge": "white",
+        "kwargs": {
+            "batch_size": 1,
+            "norm": 2,
+            "snrdb_radius": 25,
+            "step_factor": 0.1,
+            "targeted": false,
+            "max_iter": 50
+        },
+        "module": "smoothing_asr.attacks.snrpgd",
+        "name": "PGDSNR",
+        "targeted": false,
+        "targeted_labels": {
+            "scheme": "string",
+            "value": "TEST STRING"
+        },
+        "use_label": true
+    },
+    "dataset": {
+        "batch_size": 1,
+        "eval_split": "test_clean",
+        "framework": "numpy",
+        "module": "armory.data.datasets",
+        "name": "librispeech",
+        "train_split": "train_clean100"
+    },
+    "defense": {
+        "kwargs": {
+            "sigma": 0.01,
+            "augmentation": false,
+            "ratio": 1.0,
+            "high_freq": false,
+            "apply_fit": true,
+            "apply_predict": true,
+            "filter": null,
+            "filter_kwargs": {
+                "sr": 16000,
+                "hop": 160,
+                "nfft": 320,
+                "apply_fit": true,
+                "apply_predict": true
+            },
+            "enhancer": null,
+            "enhancer_kwargs": {
+                "load_weights_file": "segan+_generator.ckpt",
+                "cfg_file": "train.opts"
+            }
+        },
+        "module": "smoothing_asr.defenses.smoothing",
+        "name": "SpeechNoiseAugmentation",
+        "type": "Preprocessor"
+    },
+    "metric": {
+        "means": false,
+        "perturbation": [
+            "snr_db"
+        ],
+        "record_metric_per_sample": true,
+        "task": [
+            "word_error_rate"
+        ]
+    },
+    "model": {
+        "fit": false,
+        "fit_kwargs": {
+            "nb_epochs": 15,
+            "save_weights_file": "deepspeech_localtrain.pth"
+        },
+        "model_kwargs": {},
+        "module": "smoothing_asr.models.deep_speech",
+        "name": "get_art_model",
+        "predict_kwargs": {
+            "transcription_output": true,
+            "reload_model": false
+        },
+        "weights_file": "librispeech_gaussian01.ckpt",
+        "wrapper_kwargs": {
+            "use_half": false,
+            "use_amp": false,
+            "load_weights_file": "librispeech_gaussian01.ckpt",
+            "random_init": false,
+            "niters_forward": 1,
+            "niters_backward": 10,
+            "batch_backward": 16,
+            "batch_forward": 16,
+            "decoder_type": "beam",
+            "beam_width": 1,
+            "voting_kwargs": {
+                "voting": "rover_freq",
+                "rover_bin_path": "/SCTK/bin/rover",
+                "vote_on_nbest": false,
+                "use_alignments": true,
+                "use_confidence": false
+            }
+        }
+    },
+    "scenario": {
+        "kwargs": {},
+        "module": "armory.scenarios.audio_asr",
+        "name": "AutomaticSpeechRecognition",
+        "export_samples": 10
+    },
+    "sysconfig": {
+        "docker_image": "perspecta/pytorch-asr:latest",
+        "external_github_repo": [
+            "RaphaelOlivier/deepspeech.pytorch",
+            "RaphaelOlivier/gard_eval2_public@main"
+        ],
+        "gpus": "all",
+        "local_repo_path": null,
+        "output_dir": null,
+        "output_filename": null,
+        "use_gpu": true
+    }
+}
