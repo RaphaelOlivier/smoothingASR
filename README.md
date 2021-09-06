@@ -1,5 +1,5 @@
 # smoothingASR
-Randomized smoothing adversarial defense for ASR models, with original enhancement and voting strategies to limit the drop in performance. This code goes along with the EMNLP 2022 article "Sequential Randomized Smoothing for Adversarially Robust Speech Recognition".
+Randomized smoothing adversarial defense for ASR models, with original enhancement and voting strategies to limit the drop in performance. This code goes along with the EMNLP 2021 article "Sequential Randomized Smoothing for Adversarially Robust Speech Recognition".
 
 ## Setup
 We use [armory](https://github.com/twosixlabs/armory) to run adversarial experiments in a controlled environment. Please refer to their README for setup.
@@ -20,6 +20,9 @@ Or write your own config files for custom experiments.
 ## Models
 
 You will find all our pretrained models and some auxiliary files [here](https://drive.google.com/drive/folders/1MOx0H0Qf_f21pIrkoCPW6VNQJZk3BNe6?usp=sharing). Dump them in the saved models folder you setup when configuring armory.
+
+## Generate examples
+The `export_samples` field in armory configuration files lets you export audio adversarial examples. [Here](https://drive.google.com/drive/folders/1kmuFh1UZlYk1-g2x6-vsnW3xxreQfr7f?usp=sharing) we share some files, generated with the attacks mentioned in our paper against our proposed defense.
 
 ## Cite
 TBD
