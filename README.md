@@ -25,4 +25,18 @@ You will find all our pretrained models and some auxiliary files [here](https://
 The `export_samples` field in armory configuration files lets you export audio adversarial examples. [Here](https://drive.google.com/drive/folders/1kmuFh1UZlYk1-g2x6-vsnW3xxreQfr7f?usp=sharing) we share some files, generated with the attacks mentioned in our paper against our proposed defense.
 
 ## Cite
-TBD
+If you use this code please cite our paper:
+```bibtex
+@inproceedings{olivier-raj-2021-sequential,
+    title = "Sequential Randomized Smoothing for Adversarially Robust Speech Recognition",
+    author = "Olivier, Raphael  and
+      Raj, Bhiksha",
+    booktitle = "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2021",
+    address = "Online and Punta Cana, Dominican Republic",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.emnlp-main.514",
+    pages = "6372--6386",
+}
+```
