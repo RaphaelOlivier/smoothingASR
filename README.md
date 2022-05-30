@@ -1,6 +1,8 @@
 # smoothingASR
 Randomized smoothing adversarial defense for ASR models, with original enhancement and voting strategies to limit the drop in performance. This code goes along with the EMNLP 2021 article "Sequential Randomized Smoothing for Adversarially Robust Speech Recognition".
 
+This repository is the original implementation of sequential smoothing, which since then has been integrated to the [robust_speech](https://github.com/RaphaelOlivier/robust_speech) package. We recommend using the robust_speech implementation, as it allows experiments with many more models and attacks.
+
 ## Setup
 We use [armory](https://github.com/twosixlabs/armory) to run adversarial experiments in a controlled environment. Please refer to their README for setup.
 
